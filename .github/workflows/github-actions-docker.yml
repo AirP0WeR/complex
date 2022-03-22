@@ -9,5 +9,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
+    - name: Build the Docker image client
       run: docker build -t p0wer/multi-client ./client
+
+    - uses: actions/checkout@v2
+    - name: Build the Docker image nginx
+      run: docker build -t p0wer/multi-nginx ./nginx
+
+    - uses: actions/checkout@v2
+    - name: Build the Docker image server
+      run: docker build -t p0wer/multi-server ./server
+
+    - uses: actions/checkout@v2
+    - name: Build the Docker image worker
+      run: docker build -t p0wer/multi-worker ./worker
